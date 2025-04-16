@@ -9,7 +9,6 @@ This project simulates a leave management system where employees can request lea
 - ✅ Entity Framework Core + SQLite
 - ✅ Clean Architecture
 - ✅ AutoMapper (for mapping DTOs)
-- ✅ Swagger (for API documentation)
 - ✅ RESTful design
 - ✅ Repository Pattern
 
