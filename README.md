@@ -16,17 +16,4 @@ This project simulates a leave management system where employees can request lea
 ---
 
 ## 🗂️ Project Structure
-LeaveManagementSystem/
-├── src/
-│   ├── API/                            → Presentation layer (Controllers, Program.cs, Swagger)
-│   ├── Application/                   → DTOs, Interfaces, Services, Mappings, Use Cases
-│   ├── Domain/                        → Business entities, enums (no dependencies)
-│   ├── Infrastructure/               → Implementation of interfaces (Repositories, External services)
-│   └── Persistence/                  → EF Core DbContext, Configurations, Seeding, Migrations
-
-├── tests/
-│   └── LeaveManagementSystem.Tests/   → Unit tests and integration tests
-
-├── .gitignore                         → Ignore build artifacts, user settings, etc.
-├── README.md                          → Project documentation and usage guide
-├── LeaveManagementSystem.sln         → Visual Studio solution file
+This project follows Clean Architecture. The API project handles HTTP requests and exposes the controllers. The Application project contains the business logic, DTOs, interfaces, and mappings. The Domain project defines core entities and enums with no dependencies. The Infrastructure project implements application interfaces like repositories. The Persistence project manages database access, configurations, and migrations. All tests are placed in a separate Tests project. This structure keeps the code modular, scalable, and easy to maintain.
