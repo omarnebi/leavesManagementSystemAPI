@@ -15,4 +15,11 @@ This project simulates a leave management system where employees can request lea
 ---
 
 ## 🗂️ Project Structure
-This project follows Clean Architecture. The API project handles HTTP requests and exposes the controllers. The Application project contains the business logic, DTOs, interfaces, and mappings. The Domain project defines core entities and enums with no dependencies. The Infrastructure project implements application interfaces like repositories. The Persistence project manages database access, configurations, and migrations. All tests are placed in a separate Tests project. This structure keeps the code modular, scalable, and easy to maintain.
+This project follows the Clean Architecture pattern with clearly separated layers:
+
+- **API**: Handles HTTP requests and exposes the controllers.
+- **Application**: Contains business logic, DTOs, interfaces, mappings, and services.
+- **Domain**: Defines the core entities and enums, with no external dependencies.
+- **Infrastructure**: Implements interfaces from the Application layer (e.g., repositories, services).
+- **Persistence**: Manages database access, configurations, seeding, and EF Core migrations.
+This structure ensures the codebase remains modular, scalable, testable, and easy to maintain.
