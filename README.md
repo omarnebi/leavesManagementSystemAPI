@@ -1,7 +1,20 @@
-# LeaveManagementSystem.API
+# Leave Management System API
 
-## 🧱 Project Architecture (Clean Architecture)
+A backend Web API built with **ASP.NET Core 9**, using **Clean Architecture**, Entity Framework Core with SQLite, and AutoMapper.
+This project simulates a leave management system where employees can request leaves, and admins can manage them.
+---
+## 📦 Technologies Used
 
+- ✅ ASP.NET Core 9 Web API
+- ✅ Entity Framework Core + SQLite
+- ✅ Clean Architecture
+- ✅ AutoMapper (for mapping DTOs)
+- ✅ RESTful design
+- ✅ Repository Pattern
+
+---
+
+## 🗂️ Project Structure
 This project follows the Clean Architecture pattern with clearly separated layers:
 
 - **API**: Handles HTTP requests and exposes the controllers.
@@ -9,58 +22,4 @@ This project follows the Clean Architecture pattern with clearly separated layer
 - **Domain**: Defines the core entities and enums, with no external dependencies.
 - **Infrastructure**: Implements interfaces from the Application layer (e.g., repositories, services).
 - **Persistence**: Manages database access, configurations, seeding, and EF Core migrations.
-- **Tests**: Contains unit and integration tests in a separate project.
 
-This structure ensures the codebase remains modular, scalable, testable, and easy to maintain.
-
-## 📁 Project Structure
-
-```
-LeaveManagementSystem/
-├── src/
-│   ├── LeaveManagementSystem.API/              → Presentation Layer
-│   ├── LeaveManagementSystem.Application/      → Business Logic, DTOs, Interfaces
-│   ├── LeaveManagementSystem.Domain/           → Core Domain Entities
-│   ├── LeaveManagementSystem.Infrastructure/   → Repositories, Services
-│   └── LeaveManagementSystem.Persistence/      → EF Core, Migrations, DbContext
-
-├── tests/
-│   └── LeaveManagementSystem.Tests/            → Unit & Integration Tests
-
-├── docker-compose.yml
-├── .gitignore
-├── README.md
-```
-
-## 🚀 Local Setup with Docker
-
-### 1. Build the image
-
-```bash
-docker-compose build
-```
-
-### 2. Run the container
-
-```bash
-docker-compose up
-```
-
-### 3. Access the API
-
-```
-http://localhost:8080
-```
-
-## 🧪 CLI Tips
-
-- Full rebuild:
-  ```bash
-  docker-compose build --no-cache
-  docker-compose up --force-recreate
-  ```
-
-- Stop containers:
-  ```bash
-  docker-compose down
-  ```
