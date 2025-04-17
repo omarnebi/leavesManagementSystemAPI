@@ -1,0 +1,6 @@
+services:
+  leavemanagementsystem.api:
+    image: ${DOCKER_REGISTRY-}leavemanagementsystemapi
+    build:
+      context: .
+      dockerfile: LeaveManagementSystem.API/Dockerfile

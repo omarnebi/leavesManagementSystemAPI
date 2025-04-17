@@ -3,7 +3,7 @@ using LeaveManagementSystem.Application.DTOs;
 using LeaveManagementSystem.Application.Interfaces;
 using LeaveManagementSystem.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.DataAnnotations;
+
 
 namespace LeaveManagementSystem.API.Controllers;
 
@@ -66,6 +66,21 @@ public class LeaveRequestsController : ControllerBase
         var results = await _repository.FilterAsync(filters);
         var dtos = _mapper.Map<List<LeaveRequestDto>>(results);
         return Ok(dtos);
+    }
+
+    [HttpGet("report")]
+    public async Task<IActionResult> GetReport([FromQuery] int year, [FromQuery] string? department, [FromQuery] DateTime? startDate, [FromQuery] DateTime? endDate)
+    {
+        var report = await _repository.GetLeaveReportAsync(year, department, startDate, endDate);
+        return Ok(report);
+    }
+
+    [HttpPost("{id}/approve")]
+    public async Task<IActionResult> Approve(int id)
+    {
+        var success = await _repository.ApproveLeaveRequestAsync(id);
+        if (!success) return BadRequest("Invalid leave request or already approved.");
+        return Ok("Leave approved successfully.");
     }
 
 

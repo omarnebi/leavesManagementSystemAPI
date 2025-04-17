@@ -16,5 +16,7 @@ namespace LeaveManagementSystem.Application.Interfaces
         Task UpdateAsync(LeaveRequest leaveRequest);
         Task DeleteAsync(int id);
         Task<List<LeaveRequest>> FilterAsync(LeaveRequestFilterDto filters);
+        Task<List<LeaveReportDto>> GetLeaveReportAsync(int year, string? department, DateTime? start, DateTime? end);
+        Task<bool> ApproveLeaveRequestAsync(int id);
     }
 }

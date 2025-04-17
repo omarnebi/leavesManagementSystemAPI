@@ -81,4 +81,44 @@ public class LeaveRequestRepository : ILeaveRequestRepository
         int skip = (filters.Page - 1) * filters.PageSize;
         return await query.Skip(skip).Take(filters.PageSize).ToListAsync();
     }
+
+    public async Task<List<LeaveReportDto>> GetLeaveReportAsync(int year, string? department, DateTime? start, DateTime? end)
+    {
+        var query = _context.LeaveRequests
+            .Include(l => l.Employee)
+            .Where(l => l.StartDate.Year == year);
+
+        if (!string.IsNullOrEmpty(department))
+            query = query.Where(l => l.Employee != null && l.Employee.Department == department);
+
+        if (start.HasValue)
+            query = query.Where(l => l.StartDate >= start.Value);
+
+        if (end.HasValue)
+            query = query.Where(l => l.EndDate <= end.Value);
+
+        var result = await query
+            .GroupBy(l => new { FullName = l.Employee != null ? l.Employee.FullName : string.Empty })
+            .Select(g => new LeaveReportDto
+            {
+                EmployeeName = g.Key.FullName,
+                TotalLeaves = g.Count(),
+                AnnualLeaves = g.Count(l => l.LeaveType == LeaveType.Annual),
+                SickLeaves = g.Count(l => l.LeaveType == LeaveType.Sick)
+            })
+            .ToListAsync();
+
+        return result;
+    }
+    public async Task<bool> ApproveLeaveRequestAsync(int id)
+    {
+        var leave = await _context.LeaveRequests.FindAsync(id);
+        if (leave == null || leave.Status != LeaveStatus.Pending)
+            return false;
+
+        leave.Status = LeaveStatus.Approved;
+        await _context.SaveChangesAsync();
+        return true;
+    }
+
 }
