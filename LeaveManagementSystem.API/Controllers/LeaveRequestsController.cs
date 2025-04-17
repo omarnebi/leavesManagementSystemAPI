@@ -3,6 +3,7 @@ using LeaveManagementSystem.Application.DTOs;
 using LeaveManagementSystem.Application.Interfaces;
 using LeaveManagementSystem.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace LeaveManagementSystem.API.Controllers;
 
@@ -12,11 +13,13 @@ public class LeaveRequestsController : ControllerBase
 {
     private readonly ILeaveRequestRepository _repository;
     private readonly IMapper _mapper;
+    private readonly ILeaveValidatorService _validator;
 
-    public LeaveRequestsController(ILeaveRequestRepository repository, IMapper mapper)
+    public LeaveRequestsController(ILeaveRequestRepository repository, IMapper mapper, ILeaveValidatorService validator)
     {
         _repository = repository;
         _mapper = mapper;
+        _validator = validator;
     }
 
     [HttpGet]
@@ -38,6 +41,7 @@ public class LeaveRequestsController : ControllerBase
     public async Task<IActionResult> Create([FromBody] CreateLeaveRequestDto dto)
     {
         var leave = _mapper.Map<LeaveRequest>(dto);
+        await _validator.ValidateLeaveRequestAsync(leave);
         var created = await _repository.AddAsync(leave);
         return CreatedAtAction(nameof(Get), new { id = created.Id }, _mapper.Map<LeaveRequestDto>(created));
     }
@@ -55,5 +59,14 @@ public class LeaveRequestsController : ControllerBase
         await _repository.UpdateAsync(existing);
         return NoContent(); 
     }
+
+    [HttpGet("filter")]
+    public async Task<IActionResult> Filter([FromQuery] LeaveRequestFilterDto filters)
+    {
+        var results = await _repository.FilterAsync(filters);
+        var dtos = _mapper.Map<List<LeaveRequestDto>>(results);
+        return Ok(dtos);
+    }
+
 
 }

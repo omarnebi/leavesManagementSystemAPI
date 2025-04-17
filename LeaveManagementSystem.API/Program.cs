@@ -18,6 +18,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<ILeaveRequestRepository, LeaveRequestRepository>();
+builder.Services.AddScoped<ILeaveValidatorService, LeaveValidatorService>();
+
 builder.Services.AddAutoMapper(typeof(LeaveRequestProfile));
 
 var app = builder.Build();
