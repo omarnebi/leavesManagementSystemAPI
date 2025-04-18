@@ -33,6 +33,8 @@ git clone https://github.com/omarnebi/leavesManagementSystemAPI.git
 cd leavesManagementSystemAPI
 dotnet run
 URL without Docker http://localhost:5087
+---
+To run the LeaveManagementSystem.API project in a containerized environment using Docker, use the following commands:
 
 
 
