@@ -11,6 +11,7 @@ This project simulates a leave management system where employees can request lea
 - ✅ AutoMapper (for mapping DTOs)
 - ✅ RESTful design
 - ✅ Repository Pattern
+- ✅ Docker
 
 
 ---
@@ -28,11 +29,7 @@ Make sure the following are installed on your system:
 
 ### 1. Clone the repository
 
-```bash
-git clone https://github.com/omarnebi/leavesManagementSystemAPI.git
-cd leavesManagementSystemAPI
-dotnet run
-URL without Docker http://localhost:5087
+
 ---
 To run the LeaveManagementSystem.API project in a containerized environment using Docker, use the following commands:
 
