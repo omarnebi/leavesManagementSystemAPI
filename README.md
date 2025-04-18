@@ -22,8 +22,6 @@ This project follows the Clean Architecture pattern with clearly separated layer
 - **Domain**: Defines the core entities and enums, with no external dependencies.
 - **Infrastructure**: Implements interfaces from the Application layer (e.g., repositories, services).
 - **Persistence**: Manages database access, configurations, seeding, and EF Core migrations.
-- **Tests**: Contains unit and integration tests in a separate project.
-
 This structure ensures the codebase remains modular, scalable, testable, and easy to maintain.
 
 ---
