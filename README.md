@@ -21,14 +21,8 @@ This project simulates a leave management system where employees can request lea
 ```bash
 git clone https://github.com/omarnebi/leavesManagementSystemAPI.git
 cd leavesManagementSystemAPI
+cd LeaveManagementSystem.API
+dotnet ef migrations add IEmploye --project ../LeaveManagementSystem.Persistence --startup-project .
+dotnet ef migrations add IEmploye --project ../LeaveManagementSystem.Persistence --startup-project .
 
-
-## 🗂️ Project Structure
-This project follows the Clean Architecture pattern with clearly separated layers:
-
-- **API**: Handles HTTP requests and exposes the controllers.
-- **Application**: Contains business logic, DTOs, interfaces, mappings, and services.
-- **Domain**: Defines the core entities and enums, with no external dependencies.
-- **Infrastructure**: Implements interfaces from the Application layer (e.g., repositories, services).
-- **Persistence**: Manages database access, configurations, seeding, and EF Core migrations.
 
