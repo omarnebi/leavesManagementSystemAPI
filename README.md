@@ -12,7 +12,19 @@ This project simulates a leave management system where employees can request lea
 - ✅ RESTful design
 - ✅ Repository Pattern
 - ✅ Docker
+---
+## 🧱 Project Architecture (Clean Architecture)
 
+This project follows the Clean Architecture pattern with clearly separated layers:
+
+- **API**: Handles HTTP requests and exposes the controllers.
+- **Application**: Contains business logic, DTOs, interfaces, mappings, and services.
+- **Domain**: Defines the core entities and enums, with no external dependencies.
+- **Infrastructure**: Implements interfaces from the Application layer (e.g., repositories, services).
+- **Persistence**: Manages database access, configurations, seeding, and EF Core migrations.
+- **Tests**: Contains unit and integration tests in a separate project.
+
+This structure ensures the codebase remains modular, scalable, testable, and easy to maintain.
 
 ---
 ## Goals
