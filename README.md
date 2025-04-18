@@ -26,12 +26,12 @@ Make sure the following are installed on your system:
 ---
 
 ## 🚀 Local Setup Instructions
+```bash
+git clone https://github.com/omarnebi/leavesManagementSystemAPI.git
+cd leavesManagementSystemAPI
+dotnet run
+http://localhost:5087
 
-### 1. Clone the repository
-
-
----
-To run the LeaveManagementSystem.API project in a containerized environment using Docker, use the following commands:
 
 
 
