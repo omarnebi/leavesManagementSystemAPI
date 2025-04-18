@@ -23,6 +23,7 @@ git clone https://github.com/omarnebi/leavesManagementSystemAPI.git
 cd leavesManagementSystemAPI
 cd LeaveManagementSystem.API
 dotnet ef migrations add IEmploye --project ../LeaveManagementSystem.Persistence --startup-project .
-dotnet ef migrations add IEmploye --project ../LeaveManagementSystem.Persistence --startup-project .
+dotnet ef database update
+
 
 
