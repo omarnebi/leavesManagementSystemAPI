@@ -14,16 +14,5 @@ This project simulates a leave management system where employees can request lea
 
 ---
 
-## 🚀 Local Setup Instructions
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/omarnebi/leavesManagementSystemAPI.git
-cd leavesManagementSystemAPI
-cd LeaveManagementSystem.API
-dotnet ef migrations add IEmploye --project ../LeaveManagementSystem.Persistence --startup-project .
-dotnet ef database update
-
 
 
