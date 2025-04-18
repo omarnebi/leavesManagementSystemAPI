@@ -26,11 +26,12 @@ Make sure the following are installed on your system:
 ---
 
 ## 🚀 Local Setup Instructions
-```bash
+```shell
 git clone https://github.com/omarnebi/leavesManagementSystemAPI.git
 cd leavesManagementSystemAPI
 dotnet run
 http://localhost:5087
+```
 
 
 
