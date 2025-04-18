@@ -83,5 +83,15 @@ public class LeaveRequestsController : ControllerBase
         return Ok("Leave approved successfully.");
     }
 
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var leaveRequest = await _repository.GetByIdAsync(id);
+        if (leaveRequest == null)
+            return NotFound("Leave request not found.");
+
+        await _repository.DeleteAsync(id);
+        return NoContent();
+    }
 
 }
