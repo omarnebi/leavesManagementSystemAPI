@@ -12,6 +12,7 @@ This project simulates a leave management system where employees can request lea
 - ✅ RESTful design
 - ✅ Repository Pattern
 
+
 ---
 
 ## 🛠️ Prerequisites
@@ -21,7 +22,6 @@ Make sure the following are installed on your system:
 - [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
 - Git CLI
-
 ---
 
 ## 🚀 Local Setup Instructions
@@ -31,6 +31,11 @@ Make sure the following are installed on your system:
 ```bash
 git clone https://github.com/omarnebi/leavesManagementSystemAPI.git
 cd leavesManagementSystemAPI
+dotnet run
+URL without Docker http://localhost:5087
+
+
+
 
 
 
