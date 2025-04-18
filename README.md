@@ -14,6 +14,15 @@ This project simulates a leave management system where employees can request lea
 
 ---
 
+## 🚀 Local Setup Instructions
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/omarnebi/leavesManagementSystemAPI.git
+cd leavesManagementSystemAPI
+
+
 ## 🗂️ Project Structure
 This project follows the Clean Architecture pattern with clearly separated layers:
 
